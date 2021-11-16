@@ -1,1 +1,238 @@
 
+package driftaway_project;
+
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Learn_sustain
+{
+
+	public static void main(String[] args) throws InterruptedException 
+	{
+		    //launch browser
+			System.setProperty("webdriver.chrome.driver", "E:\\Automation_T\\chromedriver.exe");
+			WebDriver driver = new ChromeDriver();
+			
+			//Site Navigation
+			driver.navigate().to("https://driftaway.coffee/");
+			//Implicit Wait
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			
+			////Instantiating Actions class
+			Actions actions = new Actions(driver);
+
+			//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<LEARN Section>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+			actions.moveToElement(driver.findElement(By.linkText("LEARN"))).click().perform();
+			new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(By.linkText("LEARN"))).click();
+			
+			//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<1."How to make coffee">>>>>>>>>>>>>>>>>>>>>>>>>>>
+			driver.findElement(By.linkText("How to make coffee")).click();
+			
+			//click on "DRIFTAWAY COLD BREW BAGS" in "How to make coffee" Section
+			driver.findElement(By.linkText("DRIFTAWAY COLD BREW BAGS")).click();
+			
+			//radio button in "DRIFTAWAY COLD BREW BAGS"
+
+			//Double click on element (Join The Disscusion Form)
+			WebElement wb2 = driver.findElement(By.xpath("//body/div[1]/div[1]/div[7]/main[1]/div[2]/div[3]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"));
+			actions.doubleClick(wb2).perform();
+			//driver.findElement(By.xpath("//*[@id=\"wpd-editor-0_0\"]/div[1]/p")).sendKeys("Hi How You Doing!");
+			//driver.findElement(By.id("wc_name-0_0")).sendKeys("Supra Rangam");
+			//driver.findElement(By.id("wc_email-0_0")).sendKeys("supra.rangam98@gmail.com");
+			//driver.findElement(By.id("wc_website-0_0")).sendKeys("https://www.snackible.com/");
+			driver.findElement(By.id("wpd-field-submit-0_0")).click();
+			
+			//Go Back to "How to make coffee"
+			driver.navigate().back();
+			
+			//Click on "COLD BREW FRENCH PRESS" in "How to make coffee" Section
+			driver.findElement(By.linkText("COLD BREW FRENCH PRESS")).click();
+			driver.navigate().back();
+			//Click on "POUR OVER WITH A KALITA WAVE" in "How to make coffee" Section
+			driver.findElement(By.linkText("POUR OVER WITH A KALITA WAVE")).click();
+			driver.navigate().back();
+			//Click on "FRENCH PRESS" in "How to make coffee" Section
+			driver.findElement(By.linkText("FRENCH PRESS")).click();
+			driver.navigate().back();
+			//Click on "ESPRESSO" in "How to make coffee" Section
+			driver.findElement(By.linkText("ESPRESSO")).click();
+			driver.navigate().back();
+			//Click on "AUTO-DRIP" in "How to make coffee" Section
+			driver.findElement(By.linkText("AUTO-DRIP")).click();
+			driver.navigate().back();
+			//Click on "AEROPRESS COFFEE" in "How to make coffee" Section
+			driver.findElement(By.linkText("AEROPRESS COFFEE")).click();
+			
+			//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>2.Coffee Tastings<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+			
+			actions.moveToElement(driver.findElement(By.linkText("LEARN"))).click().perform();
+			//Click on "Coffee Tastings" From LEARN Dropdown
+			driver.findElement(By.linkText("Coffee Tastings")).click();
+			
+			//Click on "TASTINGS ON INSTAGRAM LIVE" in "Coffee Tastings" Section
+			driver.findElement(By.linkText("TASTINGS ON INSTAGRAM LIVE")).click();
+			driver.navigate().back();
+			//Click on "PRIVATE TASTING PARTIES" in "Coffee Tastings" Section
+			driver.findElement(By.linkText("PRIVATE TASTING PARTIES")).click();
+			driver.navigate().back();
+			
+			//	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<3.Brewing Classes>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+			actions.moveToElement(driver.findElement(By.linkText("LEARN"))).click().perform();
+			
+			//Click on "Brewing Classes" From LEARN Dropdown
+			driver.findElement(By.linkText("Brewing Classes")).click();
+			
+			//Click on "Corporate event" in "Brewing Classes" Section
+			driver.findElement(By.linkText("Corporate event")).click();
+			driver.navigate().back();
+			//Click on "LEARN MORE " of "POUR OVER BREWING" in "Brewing Classes" Section
+			driver.findElement(By.xpath("//*[@id=\"genesis-content\"]/article/div/div[1]/div[2]/div/div/div/div[1]/div/div[3]/div/div/a/span")).click();
+			driver.navigate().back();
+			//Click on "LEARN MORE" of "ICED POUR OVER BREWING" in "Brewing Classes" Section
+			driver.findElement(By.xpath("//*[@id=\"genesis-content\"]/article/div/div[1]/div[2]/div/div/div/div[2]/div/div[3]/div/div/a/span")).click();
+			driver.navigate().back();
+			
+		//  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<4. Corporate Events>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+			
+			actions.moveToElement(driver.findElement(By.linkText("LEARN"))).click().perform();
+			
+			//Click on "Corporate Events" From LEARN Dropdown
+			driver.findElement(By.linkText("Corporate Events")).click();
+			
+			//Click on "SCHEDULE YOUR CORPORATE TASTING" in "Corporate Events" Section
+			
+			driver.findElement(By.linkText("SCHEDULE YOUR CORPORATE TASTING")).click();
+		    // hold all window Tabs in array list
+		    ArrayList<String> newTb2 = new ArrayList<String>(driver.getWindowHandles());
+		    //switch to new tab
+		    driver.switchTo().window(newTb2.get(1));
+		    //Switch back to Parent(Main)Tab
+			driver.switchTo().window(newTb2.get(0));
+			
+			Thread.sleep(3000);
+			 
+			                            //SUSTAINABILITY
+			actions.moveToElement(driver.findElement(By.linkText("SUSTAINABILITY"))).click().perform();
+		//	<<<<<<<<<<<<<<<<<<<<<<<<<<Compostable Packaging>>>>>>>>>>>>>>>>>>>>>>>>>>
+			
+			driver.findElement(By.linkText("Compostable Packaging")).click();
+			//click on mailer
+			driver.findElement(By.linkText("MAILER")).click();
+
+		// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<Carbon Neutral>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+		
+			actions.moveToElement(driver.findElement(By.linkText("SUSTAINABILITY"))).click().perform();
+			//new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(By.linkText("SUSTAINABILITY"))).click();
+			driver.findElement(By.linkText("Carbon Neutral")).click();
+			driver.findElement(By.linkText("LEARN MORE")).click();
+		    
+			// hold all window tabs in array list
+		    ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
+		
+		    //switch to new tab
+		    driver.switchTo().window(newTb.get(2));
+		    //switch to perent(main) tab
+		    driver.switchTo().window(newTb.get(0));
+
+
+			//	<<<<<<<<<<<<<<<<<<<<<<<<<<Farmer Feedback>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+			
+			actions.moveToElement(driver.findElement(By.linkText("SUSTAINABILITY"))).click().perform();
+			new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(By.linkText("SUSTAINABILITY"))).click();
+			driver.findElement(By.linkText("Farmer Feedback")).click();
+			driver.findElement(By.linkText("SEND FARMER FEEDBACK")).click();
+			driver.findElement(By.id("username")).sendKeys("abc@gmail.com");
+			driver.findElement(By.id("password")).sendKeys("abc@123");
+			driver.findElement(By.name("login")).click();
+			
+//	    <<<<<<<<<<<<<<<<<<<<<<<<<<Bean For Bean>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+			actions.moveToElement(driver.findElement(By.linkText("SUSTAINABILITY"))).click().perform();		
+			driver.findElement(By.linkText("Bean For Bean")).click();
+			/*//1. For Subscribe Button
+			driver.findElement(By.linkText("SUBSCRIBE")).click();
+			driver.findElement(By.linkText("SUBSCRIBE")).click();
+			Thread.sleep(500);
+			//Yourself
+			driver.findElement(By.linkText("Yourself")).click();
+			Thread.sleep(500);
+			//Whole Bean
+			driver.findElement(By.id("ngcChooseCoffeewhole-bean")).click();
+			Thread.sleep(500);
+			//Skip the Exploler KIt
+			driver.findElement(By.xpath("//body/div[1]/div[1]/div[9]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/a[1]")).click();
+			Thread.sleep(500);
+			//12 OZ Xpath	
+			driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[9]/div[2]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/a[1]")).click();
+			Thread.sleep(500);
+			//Every Two Weeks
+			driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[9]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/a[1]")).click();
+			Thread.sleep(500);
+			// Twelve months
+			driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[9]/div[2]/div[1]/div[6]/div[1]/div[1]/div[2]/div[3]/a[1]")).click();
+			
+			driver.findElement(By.partialLinkText("NEX")).click();
+
+			driver.findElement(By.partialLinkText("NEX")).click();
+
+			driver.findElement(By.partialLinkText("NEX")).click();
+
+			driver.findElement(By.partialLinkText("PROCEED TO")).click();
+			
+			*/
+			//2. FOR GIFT
+			actions.moveToElement(driver.findElement(By.linkText("SUSTAINABILITY"))).click().perform();
+			driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+			driver.findElement(By.linkText("Bean For Bean")).click();
+			driver.findElement(By.linkText("GIFT")).click();
+			driver.findElement(By.linkText("CUSTOMIZE YOUR GIFT")).click();
+			driver.findElement(By.partialLinkText("Change")).click();
+			
+			//Change Country from Dropdown
+			Select s = new Select(driver.findElement(By.id("ngcChangeCountry")));
+			s.selectByValue("IN");
+			
+		 
+			
+	// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Price Transparency>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>		
+			
+			actions.moveToElement(driver.findElement(By.linkText("SUSTAINABILITY"))).click().perform();
+			//new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(By.linkText("SUSTAINABILITY"))).click();		
+			driver.findElement(By.linkText("Price Transparency")).click();
+			
+			driver.findElement(By.linkText("VIEW COFFEES")).click();
+		    // Multiple tabs list
+		    ArrayList<String> newTb1 = new ArrayList<String>(driver.getWindowHandles());
+		    //switch to new tab
+		    driver.switchTo().window(newTb1.get(3));
+		    //Click On DECAF by Xpath.
+		    driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[7]/main/article/div/div[1]/div/div/div/div[2]/div/div/div/div/div/div[2]/div[1]/div[2]/div[1]/button[4]")).click();
+		    //Click On Learn more
+		    driver.findElement(By.partialLinkText("Learn Mo")).click();
+		    //Click On Buy Single Bags
+		    driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[7]/main/article/div/div[1]/div[1]/div/div/div/div[2]/div/div[3]/div/div/div/div/div[1]/div[1]/label")).click();
+		    //ADD To Cart
+		    driver.findElement(By.linkText("ADD TO CART")).click();
+		    //Switch TO Main Tab(Parent Tab)
+		    driver.switchTo().window(newTb1.get(0));
+
+	// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Coffee Stories>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+			actions.moveToElement(driver.findElement(By.linkText("SUSTAINABILITY"))).click().perform();		
+			//Click on Coffee Stories via LinkText
+			driver.findElement(By.linkText("Coffee Stories")).click();
+			// Get First Paragraph  
+			System.out.println(driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[7]/main/article/div/div[1]/div[1]/div/div/div/div/div/div/div[2]/div")).getText());
+			
+		}
+
+}
